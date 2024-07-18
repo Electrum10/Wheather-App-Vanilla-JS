@@ -1,19 +1,45 @@
 body {
     background-color: #D6D7DA;
+    font-family: "Manrope", sans-serif;
 }
 
 .CajaPrincipal {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0.8fr 2fr;
     width: 80%;
     margin: 0 auto;
 }
 
 .InformacionPrincipalDeLaIzquierda {
     background-color: #FFFFFF;
+    display: grid;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.Izquierda {
+    margin: 0 1;
+    padding-left: 10%;
+    padding-right: 5%;
+
+}
+
+.Logo {
+    width: 100%;
+}
+
+#TemperaturaActual {
+    font-size: 4.0vw;
+    margin-top: -3.0rem;
+    margin-bottom: -0.4rem;
+}
+
+#DiaYHora {
+    font-size: 1.3vw;
+    font-weight: 700;
 }
 
 .InformacionPrincipalDeLaDerecha {
     position: relative;
     background-color: #F6F6F8;
+    border-radius: 0px 50px 50px 0px;
 }

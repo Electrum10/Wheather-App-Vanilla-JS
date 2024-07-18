@@ -1,52 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/estilofinal.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/estilofinal.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="CajaPrincipal">
-        <div class="InformacionPrincipalDeLaIzquierda">
-            <input type="text" placeholder="Search for places...">
-            <img src="" alt="Logo que muestra como está el dia">
-            <p class="TemperaturaActual"></p>
-            <p class="DiaYHora"></p>
-            <hr>
-            <div class="DescripcionDelDiaGlobal">
-                <img src="" alt="Logo De La Descripcion Del Dia">
-                <p class="DescripcionDelDia"></p>
-            </div>
-            <div class="ProbabilidadDeLluvia">
-                <img src="" alt="Logo De Probabilidad De Lluvia">
-                <p class="ProbabilidadDeLluvia"></p>
-            </div>
-            <div class="Localidad">
-                <p class="NombreDeLaLocalidad"></p>
-                <img src="" alt="Imagen de la localidad">
-            </div>
+      <div class="InformacionPrincipalDeLaIzquierda">
+        <div class="Izquierda">
+        <input type="text" placeholder="Search for places..." />
+        <img class="Logo" id="iconoAnimado" alt="Logo que muestra como está el dia" />
+        <p id="TemperaturaActual"></p>
+        <p id="DiaYHora"></p>
+        <hr />
+        <div class="DescripcionDelDiaGlobal">
+          <img src="" alt="Logo De La Descripcion Del Dia"  />
+          <p class="DescripcionDelDia"></p>
         </div>
-        <div class="InformacionPrincipalDeLaDerecha">
-            <div class="tabs">
-                <button class="tab-link" onclick="openTab(event, 'tab1')">Today</button>
-                <button class="tab-link" onclick="openTab(event, 'tab2')">Week</button>
-              </div>
+        <div class="ProbabilidadDeLluvia">
+          <img src="" alt="Logo De Probabilidad De Lluvia" />
+          <p class="ProbabilidadDeLluvia"></p>
+        </div>
+        <div class="Localidad">
+          <p id="NombreDeLaLocalidad"></p>
+          <img src="" alt="Imagen de la localidad" />
         </div>
     </div>
-</body>
-<script>
+      </div>
+      <div class="InformacionPrincipalDeLaDerecha">
+        <div class="tabs">
+          <button class="tab-link" onclick="openTab(event, 'tab1')">
+            Today
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'tab2')">
+            Week
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const TemperaturaActual = document.getElementById("TemperaturaActual");
+    const NombreDeLaLocalidad = document.getElementById("NombreDeLaLocalidad")
+    const iconoAnimado = document.getElementById("iconoAnimado")
+    const DiaYHora = document.getElementById("DiaYHora");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      navigator.geolocation.getCurrentPosition((posicion) => {
+        longitude = posicion.coords.longitude;
+        latitude = posicion.coords.latitude;
+        const fecha = new Date()
+        
+
+        const urlGeolocalización = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0f33901d085922ce186457a1a8080b62&units=metric&lang=es`;
+        fetch(urlGeolocalización)
+          .then((respuesta) => {
+            return respuesta.json();
+          })
+          .then((data) => {
+            let temp = Math.round(data.main.temp);
+            console.log(data.name);
+            TemperaturaActual.textContent = `${temp} ºC`;
+
+            let loc = data.name;
+            NombreDeLaLocalidad.textContent = loc;
+
+            switch (fecha.getDay()) {
+                case 1:
+                DiaYHora.textContent = "Lunes"
+                break;
+                case 2:
+                DiaYHora.textContent = "Martes"
+                break;
+                case 3:
+                DiaYHora.textContent = "Miercoles"
+                break;
+                case 4:
+                DiaYHora.textContent = "Jueves"
+                break;
+                case 5:
+                DiaYHora.textContent = "Viernes"
+                break;
+                case 6:
+                DiaYHora.textContent = "Sábado"
+                break;
+                case 7:
+                DiaYHora.textContent = "Domingo"
+                break;
+            }
+
+            switch (data.weather[0].main) {
+              case "Thunderstorm":
+                iconoAnimado.src = "animated/thunder.svg";
+                console.log("TORMENTA");
+                break;
+              case "Drizzle":
+                iconoAnimado.src = "animated/rainy-2.svg";
+                console.log("LLOVIZNA");
+                break;
+              case "Rain":
+                iconoAnimado.src = "animated/rainy-7.svg";
+                console.log("LLUVIA");
+                break;
+              case "Snow":
+                iconoAnimado.src = "animated/snowy-6.svg";
+                console.log("NIEVE");
+                break;
+              case "Clear":
+                iconoAnimado.src = "animated/day.svg";
+                console.log("LIMPIO");
+                break;
+              case "Atmosphere":
+                iconoAnimado.src = "animated/weather.svg";
+                console.log("ATMOSFERA");
+                break;
+              case "Clouds":
+                iconoAnimado.src = "animated/cloudy-day-1.svg";
+                console.log("NUBES");
+                break;
+              default:
+                iconoAnimado.src = "animated/cloudy-day-1.svg";
+                console.log("por defecto");
+            }
+          });
+      });
+    });
+
     const Ciudad = "Madrid";
-    const API_KEY = "0f33901d085922ce186457a1a8080b62"
+    const API_KEY = "0f33901d085922ce186457a1a8080b62";
     const API = `https://api.openweathermap.org/data/2.5/forecast?q=${Ciudad}&appid=${API_KEY}`;
     fetch(API)
-    .then(response => response.json()
-    )
-    .then((data) => {
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data.list[0]);
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
-    })
-</script>
+      });
+  </script>
 </html>
