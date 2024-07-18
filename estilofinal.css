@@ -1,0 +1,19 @@
+body {
+    background-color: #D6D7DA;
+}
+
+.CajaPrincipal {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.InformacionPrincipalDeLaIzquierda {
+    background-color: #FFFFFF;
+}
+
+.InformacionPrincipalDeLaDerecha {
+    position: relative;
+    background-color: #F6F6F8;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/estilofinal.css">
+</head>
+<body>
+    <div class="CajaPrincipal">
+        <div class="InformacionPrincipalDeLaIzquierda">
+            <input type="text" placeholder="Search for places...">
+            <img src="" alt="Logo que muestra como está el dia">
+            <p class="TemperaturaActual"></p>
+            <p class="DiaYHora"></p>
+            <hr>
+            <div class="DescripcionDelDiaGlobal">
+                <img src="" alt="Logo De La Descripcion Del Dia">
+                <p class="DescripcionDelDia"></p>
+            </div>
+            <div class="ProbabilidadDeLluvia">
+                <img src="" alt="Logo De Probabilidad De Lluvia">
+                <p class="ProbabilidadDeLluvia"></p>
+            </div>
+            <div class="Localidad">
+                <p class="NombreDeLaLocalidad"></p>
+                <img src="" alt="Imagen de la localidad">
+            </div>
+        </div>
+        <div class="InformacionPrincipalDeLaDerecha">
+            <div class="tabs">
+                <button class="tab-link" onclick="openTab(event, 'tab1')">Today</button>
+                <button class="tab-link" onclick="openTab(event, 'tab2')">Week</button>
+              </div>
+        </div>
+    </div>
+</body>
+<script>
+    const Ciudad = "Madrid";
+    const API_KEY = "0f33901d085922ce186457a1a8080b62"
+    const API = `https://api.openweathermap.org/data/2.5/forecast?q=${Ciudad}&appid=${API_KEY}`;
+    fetch(API)
+    .then(response => response.json()
+    )
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+</script>
+</html>

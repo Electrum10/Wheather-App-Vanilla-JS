@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pestañas Interactivas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    body {
+  font-family: Arial, sans-serif;
+}
+
+.tab-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.tab-link {
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-link:hover {
+  background-color: #ddd;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+</style>
+<body>
+
+
+
+<div class="tab-container">
+  <div class="tabs">
+    <button class="tab-link" onclick="openTab(event, 'tab1')">Pestaña 1</button>
+    <button class="tab-link" onclick="openTab(event, 'tab2')">Pestaña 2</button>
+    <button class="tab-link" onclick="openTab(event, 'tab3')">Pestaña 3</button>
+  </div>
+
+  <div id="tab1" class="tab-content">
+    <h2>Contenido de Pestaña 1</h2>
+    <p>Este es el contenido de la primera pestaña.</p>
+  </div>
+
+  <div id="tab2" class="tab-content" style="display:none;">
+    <h2>Contenido de Pestaña 2</h2>
+    <p>Este es el contenido de la segunda pestaña.</p>
+  </div>
+
+  <div id="tab3" class="tab-content" style="display:none;">
+    <h2>Contenido de Pestaña 3</h2>
+    <p>Este es el contenido de la tercera pestaña.</p>
+  </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+  // Ocultar todo el contenido de las pestañas
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Remover la clase "active" de todos los enlaces de pestañas
+  tablinks = document.getElementsByClassName("tab-link");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Mostrar el contenido de la pestaña actual y agregar una clase "active" al enlace que se hizo clic
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+</script>
+</body>
+</html>

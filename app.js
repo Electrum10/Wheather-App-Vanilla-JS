@@ -6,6 +6,7 @@ const Geo = document.getElementById("Geo");
 const CiudadGeo = document.getElementById("temperatura-nombre");
 const errores = document.getElementById("Error");
 const Pregunta = document.getElementById("Pregunta");
+const iconoAnimado = document.getElementById("icono-animado")
 
 BotonBuscar.addEventListener("click", () => {
   const ciudad = Input.value;
@@ -25,8 +26,43 @@ BotonBuscar.addEventListener("click", () => {
       let loc = data.name;
       CiudadGeo.textContent = loc;
       errores.textContent = ""
-
       Pregunta.textContent = ""
+
+      //Iconos animados
+      switch (data.weather[0].main) {
+        case 'Thunderstorm':
+          iconoAnimado.src='animated/thunder.svg'
+          console.log('TORMENTA');
+          break;
+        case 'Drizzle':
+          iconoAnimado.src='animated/rainy-2.svg'
+          console.log('LLOVIZNA');
+          break;
+        case 'Rain':
+          iconoAnimado.src='animated/rainy-7.svg'
+          console.log('LLUVIA');
+          break;
+        case 'Snow':
+          iconoAnimado.src='animated/snowy-6.svg'
+            console.log('NIEVE');
+          break;                        
+        case 'Clear':
+            iconoAnimado.src='animated/day.svg'
+            console.log('LIMPIO');
+          break;
+        case 'Atmosphere':
+          iconoAnimado.src='animated/weather.svg'
+            console.log('ATMOSFERA');
+            break;  
+        case 'Clouds':
+            iconoAnimado.src='animated/cloudy-day-1.svg'
+            console.log('NUBES');
+            break;  
+        default:
+          iconoAnimado.src='animated/cloudy-day-1.svg'
+          console.log('por defecto');
+      }
+
     })
     .catch((error) => {
       console.log("Nombre de ciudad equivocado o no encontrado");
@@ -64,6 +100,40 @@ Geo.addEventListener("click", () => {
         let loc = data.name;
         CiudadGeo.textContent = loc;
         Pregunta.textContent = ""
+
+        switch (data.weather[0].main) {
+          case 'Thunderstorm':
+            iconoAnimado.src='animated/thunder.svg'
+            console.log('TORMENTA');
+            break;
+          case 'Drizzle':
+            iconoAnimado.src='animated/rainy-2.svg'
+            console.log('LLOVIZNA');
+            break;
+          case 'Rain':
+            iconoAnimado.src='animated/rainy-7.svg'
+            console.log('LLUVIA');
+            break;
+          case 'Snow':
+            iconoAnimado.src='animated/snowy-6.svg'
+              console.log('NIEVE');
+            break;                        
+          case 'Clear':
+              iconoAnimado.src='animated/day.svg'
+              console.log('LIMPIO');
+            break;
+          case 'Atmosphere':
+            iconoAnimado.src='animated/weather.svg'
+              console.log('ATMOSFERA');
+              break;  
+          case 'Clouds':
+              iconoAnimado.src='animated/cloudy-day-1.svg'
+              console.log('NUBES');
+              break;  
+          default:
+            iconoAnimado.src='animated/cloudy-day-1.svg'
+            console.log('por defecto');
+        }
       })
       .catch((error) => {
         console.log("Ciudad no encontrada o mal escrita. Revisa antes de enviar crack ;)");
