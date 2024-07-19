@@ -26,12 +26,15 @@
             alt="Logo que muestra como está el dia"
           />
           <p id="TemperaturaActual"></p>
-          <p id="Dia"></p>
-          <p id="Hora"></p>
+          <div class="DiaYHora">
+            <p id="Dia"></p>
+            <p id="Hora"></p>
+          </div>
+
           <hr />
           <div class="DescripcionDelDiaGlobal">
             <img src="" alt="Logo De La Descripcion Del Dia" />
-            <p class="DescripcionDelDia"></p>
+            <p id="DescripcionDelDia"></p>
           </div>
           <div class="ProbabilidadDeLluvia">
             <img src="" alt="Logo De Probabilidad De Lluvia" />
@@ -61,6 +64,7 @@
     const iconoAnimado = document.getElementById("iconoAnimado");
     const Hora = document.getElementById("Hora");
     const Dia = document.getElementById("Dia");
+    const DescripcionDelDia = document.getElementById("DescripcionDelDia");
     const ahora = new Date();
     const hora = ahora.getHours() + ":" + ahora.getMinutes();
 
@@ -83,37 +87,40 @@
             let loc = data.name;
             NombreDeLaLocalidad.textContent = loc;
 
+            let desc = data.weather[0].description;
+            console.log(desc);
+            DescripcionDelDia.textContent = desc;
 
-            if(ahora.getMinutes() < 9) {
+            if (ahora.getMinutes() < 9) {
               console.log(ahora.getHours() + ":" + "0" + ahora.getMinutes());
-              Hora.textContent = ahora.getHours() + ":" + "0" + ahora.getMinutes();
+              Hora.textContent =
+                ahora.getHours() + ":" + "0" + ahora.getMinutes();
             } else {
               console.log(ahora.getHours() + ":" + ahora.getMinutes());
               Hora.textContent = ahora.getHours() + ":" + ahora.getMinutes();
             }
-            
 
             switch (fecha.getDay()) {
               case 1:
-              Dia.textContent = "Lunes";
+                Dia.textContent = "Lunes,";
                 break;
               case 2:
-              Dia.textContent = "Martes";
+                Dia.textContent = "Martes,";
                 break;
               case 3:
-              Dia.textContent = "Miercoles";
+                Dia.textContent = "Miercoles,";
                 break;
               case 4:
-              Dia.textContent = "Jueves";
+                Dia.textContent = "Jueves,";
                 break;
               case 5:
-              Dia.textContent = "Viernes";
+                Dia.textContent = "Viernes,";
                 break;
               case 6:
-              Dia.textContent = "Sábado";
+                Dia.textContent = "Sábado,";
                 break;
               case 7:
-              Dia.textContent = "Domingo";
+                Dia.textContent = "Domingo,";
                 break;
             }
 

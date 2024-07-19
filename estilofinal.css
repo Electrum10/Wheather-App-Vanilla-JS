@@ -17,9 +17,9 @@ body {
 }
 
 .Izquierda {
-    margin: 0 1;
+    margin: 0 auto;
     padding-left: 10%;
-    padding-right: 5%;
+    padding-right: 10%;
 
 }
 
@@ -44,13 +44,9 @@ body {
     }
 }
 
-
-
-
-
 .Logo {
     width: 100%;
-}
+}   
 
 #TemperaturaActual {
     font-size: 4.0vw;
@@ -58,11 +54,23 @@ body {
     margin-bottom: -0.4rem;
 }
 
-#DiaYHora {
+.DiaYHora {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
     font-size: 1.3vw;
+}
+#Dia {
     font-weight: 700;
 }
 
+#Hora {
+   color: #C7C7C7;
+}
+
+.DescripcionDelDiaGlobal {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+}
 .InformacionPrincipalDeLaDerecha {
     position: relative;
     background-color: #F6F6F8;
