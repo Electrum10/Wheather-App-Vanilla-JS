@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,24 +16,32 @@
     <div class="CajaPrincipal">
       <div class="InformacionPrincipalDeLaIzquierda">
         <div class="Izquierda">
-        <input type="text" placeholder="Search for places..." />
-        <img class="Logo" id="iconoAnimado" alt="Logo que muestra como está el dia" />
-        <p id="TemperaturaActual"></p>
-        <p id="DiaYHora"></p>
-        <hr />
-        <div class="DescripcionDelDiaGlobal">
-          <img src="" alt="Logo De La Descripcion Del Dia"  />
-          <p class="DescripcionDelDia"></p>
+          <div class="BuscarCiudad">
+            <input type="text" placeholder="Search for places..." id="Buscar" />
+            <button class="BotonBuscar">X</button>
+          </div>
+          <img
+            class="Logo"
+            id="iconoAnimado"
+            alt="Logo que muestra como está el dia"
+          />
+          <p id="TemperaturaActual"></p>
+          <p id="Dia"></p>
+          <p id="Hora"></p>
+          <hr />
+          <div class="DescripcionDelDiaGlobal">
+            <img src="" alt="Logo De La Descripcion Del Dia" />
+            <p class="DescripcionDelDia"></p>
+          </div>
+          <div class="ProbabilidadDeLluvia">
+            <img src="" alt="Logo De Probabilidad De Lluvia" />
+            <p class="ProbabilidadDeLluvia"></p>
+          </div>
+          <div class="Localidad">
+            <p id="NombreDeLaLocalidad"></p>
+            <img src="" alt="Imagen de la localidad" />
+          </div>
         </div>
-        <div class="ProbabilidadDeLluvia">
-          <img src="" alt="Logo De Probabilidad De Lluvia" />
-          <p class="ProbabilidadDeLluvia"></p>
-        </div>
-        <div class="Localidad">
-          <p id="NombreDeLaLocalidad"></p>
-          <img src="" alt="Imagen de la localidad" />
-        </div>
-    </div>
       </div>
       <div class="InformacionPrincipalDeLaDerecha">
         <div class="tabs">
@@ -49,16 +57,18 @@
   </body>
   <script>
     const TemperaturaActual = document.getElementById("TemperaturaActual");
-    const NombreDeLaLocalidad = document.getElementById("NombreDeLaLocalidad")
-    const iconoAnimado = document.getElementById("iconoAnimado")
-    const DiaYHora = document.getElementById("DiaYHora");
+    const NombreDeLaLocalidad = document.getElementById("NombreDeLaLocalidad");
+    const iconoAnimado = document.getElementById("iconoAnimado");
+    const Hora = document.getElementById("Hora");
+    const Dia = document.getElementById("Dia");
+    const ahora = new Date();
+    const hora = ahora.getHours() + ":" + ahora.getMinutes();
 
     document.addEventListener("DOMContentLoaded", () => {
       navigator.geolocation.getCurrentPosition((posicion) => {
         longitude = posicion.coords.longitude;
         latitude = posicion.coords.latitude;
-        const fecha = new Date()
-        
+        const fecha = new Date();
 
         const urlGeolocalización = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0f33901d085922ce186457a1a8080b62&units=metric&lang=es`;
         fetch(urlGeolocalización)
@@ -73,27 +83,37 @@
             let loc = data.name;
             NombreDeLaLocalidad.textContent = loc;
 
+
+            if(ahora.getMinutes() < 9) {
+              console.log(ahora.getHours() + ":" + "0" + ahora.getMinutes());
+              Hora.textContent = ahora.getHours() + ":" + "0" + ahora.getMinutes();
+            } else {
+              console.log(ahora.getHours() + ":" + ahora.getMinutes());
+              Hora.textContent = ahora.getHours() + ":" + ahora.getMinutes();
+            }
+            
+
             switch (fecha.getDay()) {
-                case 1:
-                DiaYHora.textContent = "Lunes"
+              case 1:
+              Dia.textContent = "Lunes";
                 break;
-                case 2:
-                DiaYHora.textContent = "Martes"
+              case 2:
+              Dia.textContent = "Martes";
                 break;
-                case 3:
-                DiaYHora.textContent = "Miercoles"
+              case 3:
+              Dia.textContent = "Miercoles";
                 break;
-                case 4:
-                DiaYHora.textContent = "Jueves"
+              case 4:
+              Dia.textContent = "Jueves";
                 break;
-                case 5:
-                DiaYHora.textContent = "Viernes"
+              case 5:
+              Dia.textContent = "Viernes";
                 break;
-                case 6:
-                DiaYHora.textContent = "Sábado"
+              case 6:
+              Dia.textContent = "Sábado";
                 break;
-                case 7:
-                DiaYHora.textContent = "Domingo"
+              case 7:
+              Dia.textContent = "Domingo";
                 break;
             }
 

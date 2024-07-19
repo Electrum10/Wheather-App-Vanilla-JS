@@ -13,7 +13,7 @@ body {
 .InformacionPrincipalDeLaIzquierda {
     background-color: #FFFFFF;
     display: grid;
-    border-radius: 50px 0px 0px 50px;
+    border-radius: 30px 0px 0px 30px;
 }
 
 .Izquierda {
@@ -22,6 +22,31 @@ body {
     padding-right: 5%;
 
 }
+
+.BuscarCiudad{
+    margin-left: 1vw;
+    #Buscar {
+        margin-top: 2.5vw;
+        width:60%;
+        height: 20px;
+        border: solid 0px;
+        font-size: 1vw;
+    }
+
+    .BotonBuscar {
+        font-size: 0.8vw;
+        height: 1.8vw;
+        width: 1.8vw;
+        border: solid 0px;
+        border-radius: 50%;
+        margin-left: 1.5vw;
+        cursor: pointer;
+    }
+}
+
+
+
+
 
 .Logo {
     width: 100%;
@@ -41,5 +66,5 @@ body {
 .InformacionPrincipalDeLaDerecha {
     position: relative;
     background-color: #F6F6F8;
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 0px 30px 30px 0px;
 }
