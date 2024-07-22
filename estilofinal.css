@@ -56,21 +56,49 @@ body {
 
 .DiaYHora {
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 30% 1px;
     font-size: 1.3vw;
-}
-#Dia {
-    font-weight: 700;
-}
 
-#Hora {
-   color: #C7C7C7;
+    #Dia {
+        font-weight: 700;
+    }
+
+    #Hora {
+        color: #C7C7C7;
+     }
 }
 
 .DescripcionDelDiaGlobal {
     display: grid;
-    grid-template-columns: 0.3fr 1fr;
+    grid-template-columns: 0.5fr 1fr;
+    font-size: 1vw;
+    align-items: center;
+
+    #LogoDescripciónDelDia {
+        width: 60%;
+    }
+
+    #DescripcionDelDia {
+        margin-left: -14%;
+    }
 }
+
+.ProbabilidadDeLluvia {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    font-size: 1vw;
+    align-items: center;
+
+    #LogoProbabilidadLluvia {
+        width: 25%;
+        padding-left: 15%;
+    }
+
+    #ProbabilidadDeLluvia {
+        margin-left: -14%;
+    }
+}
+
 .InformacionPrincipalDeLaDerecha {
     position: relative;
     background-color: #F6F6F8;
