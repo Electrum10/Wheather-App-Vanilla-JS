@@ -30,14 +30,21 @@
             <p id="Dia"></p>
             <p id="Hora"></p>
           </div>
-
           <hr />
           <div class="DescripcionDelDiaGlobal">
-            <img src="" alt="Logo De La Descripcion Del Dia" id="LogoDescripciónDelDia" />
+            <img
+              src=""
+              alt="Logo De La Descripcion Del Dia"
+              id="LogoDescripciónDelDia"
+            />
             <p id="DescripcionDelDia"></p>
           </div>
           <div class="ProbabilidadDeLluvia">
-            <img src="./animated/droplet-solid.svg" alt="Logo De Probabilidad De Lluvia" id="LogoProbabilidadLluvia"/>
+            <img
+              src="./animated/droplet-solid.svg"
+              alt="Logo De Probabilidad De Lluvia"
+              id="LogoProbabilidadLluvia"
+            />
             <p id="ProbabilidadDeLluvia"></p>
           </div>
           <div class="Localidad">
@@ -55,149 +62,53 @@
             Week
           </button>
         </div>
+        <div class="Prediccion7Dias">
+          <div class="Prediccion">
+            <p id="Dia1"></p>
+            <img src="" alt="" id="Icono7Dias1" />
+            <p id="TemperaturaMaximaDia1"></p>
+            <p id="TemperaturaMinimaDia1"></p>
+          </div>
+          <div class="Prediccion">
+            <p id="Dia2"></p>
+            <img src="" alt="" id="Icono7Dias2" />
+            <p id="TemperaturaMaximaDia2"></p>
+            <p id="TemperaturaMinimaDia2"></p>
+          </div>
+          <div class="Prediccion">
+            <p id="Dia3"></p>
+            <img src="" alt="" id="Icono7Dias3" />
+            <p id="TemperaturaMaximaDia3"></p>
+            <p id="TemperaturaMinimaDia3"></p>
+          </div>
+          <div class="Prediccion">
+            <p id="Dia4"></p>
+            <img src="" alt="" id="Icono7Dias4" />
+            <p id="TemperaturaMaximaDia4"></p>
+            <p id="TemperaturaMinimaDia4"></p>
+          </div>
+          <div class="Prediccion">
+            <p id="Dia5"></p>
+            <img src="" alt="" id="Icono7Dias5" />
+            <p id="TemperaturaMaximaDia5"></p>
+            <p id="TemperaturaMinimaDia5"></p>
+          </div>
+          <div class="Prediccion">
+            <p id="Dia6"></p>
+            <img src="" alt="" id="Icono7Dias6" />
+            <p id="TemperaturaMaximaDia6"></p>
+            <p id="TemperaturaMinimaDia6"></p>
+          </div>
+          <div class="Prediccion">
+            <p id="Dia7"></p>
+            <img src="" alt="" id="Icono7Dias7" />
+            <p id="TemperaturaMaximaDia7"></p>
+            <p id="TemperaturaMinimaDia7"></p>
+          </div>
+        </div>
       </div>
     </div>
+    <button id="ACTIVARJS">Activar JS</button>
   </body>
-  <script>
-    //El html
-    const TemperaturaActual = document.getElementById("TemperaturaActual");
-    const NombreDeLaLocalidad = document.getElementById("NombreDeLaLocalidad");
-    const iconoAnimado = document.getElementById("iconoAnimado");
-    const Hora = document.getElementById("Hora");
-    const Dia = document.getElementById("Dia");
-    const DescripcionDelDia = document.getElementById("DescripcionDelDia");
-    const LogoDescripciónDelDia = document.getElementById("LogoDescripciónDelDia");
-    const ProbabilidadDeLluvia = document.getElementById("ProbabilidadDeLluvia");
-    
-    //Dia de ahora
-    const ahora = new Date();
-    const hora = ahora.getHours() + ":" + ahora.getMinutes();
-
-    document.addEventListener("DOMContentLoaded", () => {
-      navigator.geolocation.getCurrentPosition((posicion) => {
-        longitude = posicion.coords.longitude;
-        latitude = posicion.coords.latitude;
-        const fecha = new Date();
-
-        const urlGeolocalización = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0f33901d085922ce186457a1a8080b62&units=metric&lang=es`;
-        fetch(urlGeolocalización)
-          .then((respuesta) => {
-            return respuesta.json();
-          })
-          .then((data) => {
-            let temp = Math.round(data.main.temp);
-            console.log(data.name);
-            TemperaturaActual.textContent = `${temp} ºC`;
-
-            let loc = data.name;
-            NombreDeLaLocalidad.textContent = loc;
-
-            let desc = data.weather[0].description;
-            // console.log(desc);
-            DescripcionDelDia.textContent = desc;
-
-            let log = data.weather[0].icon;
-            let IconoLog = `https://openweathermap.org/img/wn/${log}@2x.png`
-            LogoDescripciónDelDia.src = IconoLog;
-            
-            let prob = data.hourly
-            console.log(prob);
-
-            if (ahora.getMinutes() < 9) {
-              console.log(ahora.getHours() + ":" + "0" + ahora.getMinutes());
-              Hora.textContent =
-                ahora.getHours() + ":" + "0" + ahora.getMinutes();
-            } else {
-              console.log(ahora.getHours() + ":" + ahora.getMinutes());
-              Hora.textContent = ahora.getHours() + ":" + ahora.getMinutes();
-            }
-
-            switch (fecha.getDay()) {
-              case 1:
-                Dia.textContent = "Lunes,";
-                break;
-              case 2:
-                Dia.textContent = "Martes,";
-                break;
-              case 3:
-                Dia.textContent = "Miercoles,";
-                break;
-              case 4:
-                Dia.textContent = "Jueves,";
-                break;
-              case 5:
-                Dia.textContent = "Viernes,";
-                break;
-              case 6:
-                Dia.textContent = "Sábado,";
-                break;
-              case 7:
-                Dia.textContent = "Domingo,";
-                break;
-            }
-
-            switch (data.weather[0].main) {
-              case "Thunderstorm":
-                iconoAnimado.src = "animated/thunder.svg";
-                console.log("TORMENTA");
-                break;
-              case "Drizzle":
-                iconoAnimado.src = "animated/rainy-2.svg";
-                console.log("LLOVIZNA");
-                break;
-              case "Rain":
-                iconoAnimado.src = "animated/rainy-7.svg";
-                console.log("LLUVIA");
-                break;
-              case "Snow":
-                iconoAnimado.src = "animated/snowy-6.svg";
-                console.log("NIEVE");
-                break;
-              case "Clear":
-                iconoAnimado.src = "animated/day.svg";
-                console.log("LIMPIO");
-                break;
-              case "Atmosphere":
-                iconoAnimado.src = "animated/weather.svg";
-                console.log("ATMOSFERA");
-                break;
-              case "Clouds":
-                iconoAnimado.src = "animated/cloudy-day-1.svg";
-                console.log("NUBES");
-                break;
-              default:
-                iconoAnimado.src = "animated/cloudy-day-1.svg";
-                console.log("por defecto");
-            }
-          });
-       //API para conseguir la probabilidad de lluvia   
-       const API_KEY_PROBABILIDAD_LLUVIA = "q41ainn7spc5llgmwmt4p4rrlgbbujx5bckb49td"
-       const API_PROBABILIDAD_LLUVIA = `https://www.meteosource.com/api/v1/free/point?lat=${latitude}&lon=${longitude}&sections=all&timezone=UTC&language=en&units=metric&key=${API_KEY_PROBABILIDAD_LLUVIA}`
-       fetch(API_PROBABILIDAD_LLUVIA)
-       .then((respuesta) => {
-        return respuesta.json();
-       })
-       .then((data) => {
-        const ProbDeLluvia = data.current.precipitation.total + "%";
-        ProbabilidadDeLluvia.textContent = ProbDeLluvia
-        
-       })
-       .catch((error) => {
-        console.log(error);
-       });
-      });
-    });
-
-    const Ciudad = "Madrid";
-    const API_KEY = "0f33901d085922ce186457a1a8080b62";
-    const API = `https://api.openweathermap.org/data/2.5/forecast?q=${Ciudad}&appid=${API_KEY}`;
-    fetch(API)
-      .then((response) => response.json())
-      .then((data) => {
-        //console.log(data.list);
-      })
-      .catch((error) => {
-        //console.log(error);
-      });
-  </script>
+  <script src="/scriptfinal.js"></script>
 </html>
