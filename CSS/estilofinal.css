@@ -115,4 +115,16 @@ body {
       border-radius: 15px;
     }
   }
+
+  .Estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .Estadistica {
+      color: rgb(0, 0, 0);
+      width: 200px;
+      background-color: #FFFFFF;
+      
+    }
+  }
 }
