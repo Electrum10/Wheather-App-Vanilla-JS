@@ -155,6 +155,25 @@ h3 {
       }
     }
 
+    .SalidaSol {
+      display: grid;
+      grid-template-columns: 0.4fr 1fr;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    #IconoSol {
+      width: 80%;
+
+    }
+    
+    #HoraSalidaSol #HoraPuestaSol {
+      font-size: 2rem;
+    }
+    .SalidaSol:first-of-type {
+      padding-top: 20px;
+    }
+    
     
   }
 }

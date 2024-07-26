@@ -11,7 +11,11 @@ const ActivarJs = document.getElementById("ACTIVARJS");
 const VelocidadDelViento = document.getElementById("VelocidadViento");
 const DireccionDelViento = document.getElementById("DireccionViento");
 const PuntosDireccionViento = document.getElementById("PuntosDireccionViento");
-
+const HoraSalidaSol = document.getElementById("HoraSalidaSol")
+const HoraPuestaSol = document.getElementById("HoraPuestaSol")
+const Humedad = document.getElementById("Humedad");
+const Visibilidad = document.getElementById("Visibilidad");
+const QualidadAire = document.getElementById("QualidadAire");
 //Las API KEY
 const API_KEY_METEOSOURCE = "q41ainn7spc5llgmwmt4p4rrlgbbujx5bckb49td";
 const Api_Key_openweathermap = "0f33901d085922ce186457a1a8080b62";
@@ -53,6 +57,8 @@ ActivarJs.addEventListener("click", () => {
           console.log(ahora.getHours() + ":" + ahora.getMinutes());
           Hora.textContent = ahora.getHours() + ":" + ahora.getMinutes();
         }
+
+        console.log(data)
 
         switch (fecha.getDay()) {
           case 1:
@@ -111,10 +117,26 @@ ActivarJs.addEventListener("click", () => {
             iconoAnimado.src = "animated/cloudy-day-1.svg";
             console.log("por defecto");
         }
-      });
+
+    const sunriseTimestamp = data.sys.sunrise;
+    const sunsetTimestamp = data.sys.sunset;
+    const sunriseDate = new Date(sunriseTimestamp * 1000);
+    const sunsetDate = new Date(sunsetTimestamp * 1000);
+    const sunriseTime = `${sunriseDate.getHours()}:${sunriseDate.getMinutes()}`;
+    const sunsetTime = `${sunsetDate.getHours()}:${sunsetDate.getMinutes()}`;
+    
+
+    HoraSalidaSol.textContent = sunriseTime;
+    HoraPuestaSol.textContent = sunsetTime;
+
+    Humedad.textContent = data.main.humidity + " %"
+    Visibilidad.textContent = (data.visibility / 1000) + " Km"
+        
+
+  });
       
       
-      //Probabilidad de lluvia
+    //Probabilidad de lluvia
     const API_PROBABILIDAD_LLUVIA = `https://www.meteosource.com/api/v1/free/point?lat=${latitude}&lon=${longitude}&sections=all&timezone=UTC&language=en&units=metric&key=${API_KEY_METEOSOURCE}`;
     fetch(API_PROBABILIDAD_LLUVIA)
       .then((respuesta) => {
@@ -129,7 +151,6 @@ ActivarJs.addEventListener("click", () => {
       });
 
       //Temperatura de los 7 dias
-      const Ciudad = "Madrid";
       const API_7_DIAS = `https://www.meteosource.com/api/v1/free/point?place_id=Madrid&sections=daily&timezone=UTC&language=en&units=metric&key=${API_KEY_METEOSOURCE}`;
     
       fetch(API_7_DIAS)
@@ -262,12 +283,39 @@ ActivarJs.addEventListener("click", () => {
           }
           
           DireccionDelViento.src = direcciones[data.daily.data[0].all_day.wind.dir]
-
           PuntosDireccionViento.textContent = data.daily.data[0].all_day.wind.dir
+
+
       })
         .catch((error) => {
           console.log(error);
         });
+    
+      fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${Api_Key_openweathermap}`)
+      .then((response) => response.json())
+      .then((data) => {
+
+        switch(data.list[0].main.aqi) {
+          case 1:
+            QualidadAire.textContent = "Bueno"
+            break
+          case 2:
+            QualidadAire.textContent = "Acceptable"
+            break
+          case 3:
+          QualidadAire.textContent = "Moderado"
+            break
+          case 4:
+          QualidadAire.textContent = "Malo"
+            break
+          case 5:
+          QualidadAire.textContent = "Muy Malo"
+            break
+          default:
+            QualidadAire.textContent = "No disponible"
+            break
+        }
+      })
     });
   });
 
