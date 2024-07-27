@@ -1,0 +1,11 @@
+{
+  "name": "app-clima",
+  "version": "1.0.0",
+  "description": "App del clima usando solamente Vanilla JS",
+  "main": "scriptfinal.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Electrum10",
+  "license": "ISC"
+}
