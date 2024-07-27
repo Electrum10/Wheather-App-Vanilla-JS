@@ -261,6 +261,11 @@ ActivarJs.addEventListener("click", () => {
                     console.log("NaN");
           }}
 
+          for(let i = 1; i <= 7; i++) {
+            document.getElementById(`TemperaturaMaximaDia${i}`).textContent = Math.trunc(data.daily.data[i-1].all_day.temperature_max) + "º"
+            document.getElementById(`TemperaturaMinimaDia${i}`).textContent = Math.trunc(data.daily.data[i-1].all_day.temperature_min) + "º"
+          }
+
           VelocidadDelViento.textContent = data.daily.data[0].all_day.wind.speed + " km/h"
 
           const direcciones = {

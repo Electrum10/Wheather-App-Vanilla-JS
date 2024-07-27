@@ -118,11 +118,18 @@ h3 {
       border: solid 0px;
       border-radius: 15px;
     }
+
+    .Temperaturas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .Estadisticas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 50px;
 
     .Estadistica {
       color: rgb(0, 0, 0);
@@ -174,6 +181,20 @@ h3 {
       padding-top: 20px;
     }
     
+    #Humedad {
+      font-size: 2.2vw;
+      margin-bottom: 1.0vw;
+    }
+
+    #Visibilidad {
+      font-size: 2.2vw;
+      margin-bottom: 1.0vw;
+    }
+
+    #QualidadAire {
+      font-size: 2.2vw;
+      margin-bottom: 1.0vw;
+    }
     
   }
 }
