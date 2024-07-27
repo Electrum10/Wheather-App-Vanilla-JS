@@ -86,35 +86,35 @@ ActivarJs.addEventListener("click", () => {
 
         switch (data.weather[0].main) {
           case "Thunderstorm":
-            iconoAnimado.src = "animated/thunder.svg";
+            iconoAnimado.src = "Imagenes/animated/thunder.svg";
             console.log("TORMENTA");
             break;
           case "Drizzle":
-            iconoAnimado.src = "animated/rainy-2.svg";
+            iconoAnimado.src = "Imagenes/animated/rainy-2.svg";
             console.log("LLOVIZNA");
             break;
           case "Rain":
-            iconoAnimado.src = "animated/rainy-7.svg";
+            iconoAnimado.src = "Imagenes/animated/rainy-7.svg";
             console.log("LLUVIA");
             break;
           case "Snow":
-            iconoAnimado.src = "animated/snowy-6.svg";
+            iconoAnimado.src = "Imagenes/animated/snowy-6.svg";
             console.log("NIEVE");
             break;
           case "Clear":
-            iconoAnimado.src = "animated/day.svg";
+            iconoAnimado.src = "Imagenes/animated/day.svg";
             console.log("LIMPIO");
             break;
           case "Atmosphere":
-            iconoAnimado.src = "animated/weather.svg";
+            iconoAnimado.src = "Imagenes/animated/weather.svg";
             console.log("ATMOSFERA");
             break;
           case "Clouds":
-            iconoAnimado.src = "animated/cloudy-day-1.svg";
+            iconoAnimado.src = "Imagenes/animated/cloudy-day-1.svg";
             console.log("NUBES");
             break;
           default:
-            iconoAnimado.src = "animated/cloudy-day-1.svg";
+            iconoAnimado.src = "Imagenes/animated/cloudy-day-1.svg";
             console.log("por defecto");
         }
 
@@ -169,95 +169,95 @@ ActivarJs.addEventListener("click", () => {
           for (let i = 1; i <=7; i++) {
             switch (data.daily.data[i-1].icon) {
                 case 2:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/2.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/2.png";
                   console.log("Sol");
                 break
                 case 3:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/3.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/3.png";
                   console.log("Sol Nube");
                 break
                 case 4:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/4.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/4.png";
                   console.log("Sol Nube Nube");
                 break
                 case 5:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/5.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/5.png";
                   console.log("Nube Nube Sol");
                 break
                 case 6:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/6.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/6.png";
                   console.log("Nube Nube Nube Nube Sol");
                 break
                 case 7:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/7.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/7.png";
                   console.log("Nube");
                 break
                 case 8:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/8.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/8.png";
                   console.log("Nube Nube Sol Blanco");
                 break
                 case 9:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/9.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/9.png";
                   console.log("No ver");
                 break
                 case 10:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/10.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/10.png";
                   console.log("Luvia");
                 break
                 case 11:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/11.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/11.png";
                   console.log("Mucha lluvia");
                 break
                 case 12:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/12.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/12.png";
                   console.log("Granizo");
                 break
                 case 13:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/13.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/13.png";
                   console.log("Sol y lluvia");
                 break
                 case 14:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/14.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/14.png";
                   console.log("Rayos");
                 break
                 case 15:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/15.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/15.png";
                   console.log("Rayos y sol");
                 break
                 case 16:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/16.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/16.png";
                   console.log("Nevar");
                 break
                 case 17:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/17.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/17.png";
                   console.log("Nevar mucho");
                 break
                 case 18:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/18.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/18.png";
                   console.log("No se lo que es eso");
                 break
                 case 19:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/19.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/19.png";
                   console.log("Granizo con sol");
                 break
                 case 20:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/20.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/20.png";
                   console.log("Granizo extremo");
                 break
                 case 21:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/21.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/21.png";
                   console.log("No se");
                 break
                 case 22:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/22.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/22.png";
                   console.log("Granizo extremo son sol");
                 break
                 case 23:
-                  document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/23.png";
+                  document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/23.png";
                   console.log("Otra vez lluvia");
                 break
                 default:
-                    document.getElementById(`Icono7Dias${i}`).src = "weather_icons/set02/medium/1.png";
+                    document.getElementById(`Icono7Dias${i}`).src = "Imagenes/weather_icons/set02/medium/1.png";
                     console.log("NaN");
           }}
 
@@ -269,22 +269,22 @@ ActivarJs.addEventListener("click", () => {
           VelocidadDelViento.textContent = data.daily.data[0].all_day.wind.speed + " km/h"
 
           const direcciones = {
-            N: "DireccionesBrújula/N.webp",
-            NNE: "DireccionesBrújula/NNE.webp",
-            NNE: "DireccionesBrújula/NE.webp",
-            ENE: "DireccionesBrújula/ENE.webp",
-            E: "DireccionesBrújula/E.webp",
-            ESE: "DireccionesBrújula/ESE.webp",
-            SE: "DireccionesBrújula/SE.webp",
-            SSE: "DireccionesBrújula/SSE.webp",
-            S: "DireccionesBrújula/S.webp",
-            SSW: "DireccionesBrújula/SSW.webp",
-            SW: "DireccionesBrújula/SW.webp",
-            WSW: "DireccionesBrújula/WSW.webp",
-            W: "DireccionesBrújula/W.webp",
-            WNW: "DireccionesBrújula/WNW.webp",
-            NW: "DireccionesBrújula/NW.webp",
-            NNW: "DireccionesBrújula/NNW.webp",
+            N: "Imagenes/DireccionesBrújula/N.webp",
+            NNE: "Imagenes/DireccionesBrújula/NNE.webp",
+            NNE: "Imagenes/DireccionesBrújula/NE.webp",
+            ENE: "Imagenes/DireccionesBrújula/ENE.webp",
+            E: "Imagenes/DireccionesBrújula/E.webp",
+            ESE: "Imagenes/DireccionesBrújula/ESE.webp",
+            SE: "Imagenes/DireccionesBrújula/SE.webp",
+            SSE: "Imagenes/DireccionesBrújula/SSE.webp",
+            S: "Imagenes/DireccionesBrújula/S.webp",
+            SSW: "Imagenes/DireccionesBrújula/SSW.webp",
+            SW: "Imagenes/DireccionesBrújula/SW.webp",
+            WSW: "Imagenes/DireccionesBrújula/WSW.webp",
+            W: "Imagenes/DireccionesBrújula/W.webp",
+            WNW: "Imagenes/DireccionesBrújula/WNW.webp",
+            NW: "Imagenes/DireccionesBrújula/NW.webp",
+            NNW: "Imagenes/DireccionesBrújula/NNW.webp",
           }
           
           DireccionDelViento.src = direcciones[data.daily.data[0].all_day.wind.dir]
