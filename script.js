@@ -19,6 +19,7 @@ const QualidadAire = document.getElementById("QualidadAire");
 //Las API KEY
 const API_KEY_METEOSOURCE = "q41ainn7spc5llgmwmt4p4rrlgbbujx5bckb49td";
 const Api_Key_openweathermap = "0f33901d085922ce186457a1a8080b62";
+const API_KEY_PEXELS = "o8UrRdJAM0HhkXb5kKcThVdx78xzy7RPSEKnYW2Z66OXOHIGHDj2AVsK"
 
 //Dia de ahora
 const ahora = new Date();
