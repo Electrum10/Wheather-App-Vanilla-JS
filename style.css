@@ -8,6 +8,7 @@ h3 {
   margin-top: -1px;
 }
 .CajaPrincipal {
+  position: relative;
   display: grid;
   grid-template-columns: 0.8fr 2fr;
   width: 80%;
@@ -106,42 +107,48 @@ h3 {
   position: relative;
   background-color: #f6f6f8;
   border-radius: 0px 30px 30px 0px;
+  padding-left: 5%;
+  padding-right: 5%;
 
   .Prediccion7Dias {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 
     .Prediccion {
-      background-color: aqua;
+      background-color: #fff;
       text-align: center;
-      margin: 20px;
+      margin: 5px;
       border: solid 0px;
-      border-radius: 15px;
-    }
+      border-radius: 10px;
+      font-size: 1vw;
 
-    .Temperaturas {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      .Temperaturas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 20%;
+        padding-right: 20%;
+      }
     }
   }
 
   .Estadisticas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding-bottom: 50px;
+    grid-gap: 20px;
 
     .Estadistica {
       color: rgb(0, 0, 0);
-      width: 200px;
       background-color: #FFFFFF;
-      border-radius: 30px;
+      border-radius: 20px;
       padding: 20px;
-      margin: 0 auto;
-      max-width: 500px;
+      height: 20vh;
+      padding-left: 20px;
+      padding-right: 20px;
+
 
       h3 {
         margin-bottom: 5px;
+        padding-left: 5%;
       }
     }
 

@@ -168,6 +168,8 @@ ActivarJs.addEventListener("click", () => {
         }
 
         for (let i = 1; i <= 7; i++) {
+          document.getElementById(`Icono7Dias${i}`).style.width = "3vw"
+
           switch (data.daily.data[i - 1].icon) {
             case 2:
               document.getElementById(`Icono7Dias${i}`).src =
