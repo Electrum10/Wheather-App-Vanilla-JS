@@ -16,6 +16,8 @@ const HoraPuestaSol = document.getElementById("HoraPuestaSol");
 const Humedad = document.getElementById("Humedad");
 const Visibilidad = document.getElementById("Visibilidad");
 const QualidadAire = document.getElementById("QualidadAire");
+const IndiceHumedad = document.getElementById("IndiceHumedad");
+const IndiceVisibilidad = document.getElementById("IndiceVisibilidad");
 //Las API KEY
 const API_KEY_METEOSOURCE = "q41ainn7spc5llgmwmt4p4rrlgbbujx5bckb49td";
 const Api_Key_openweathermap = "0f33901d085922ce186457a1a8080b62";
@@ -131,6 +133,21 @@ ActivarJs.addEventListener("click", () => {
         HoraPuestaSol.textContent = sunsetTime;
 
         Humedad.textContent = data.main.humidity + " %";
+        if(data.main.humidity <= 0) {
+          IndiceHumedad.textContent = "No hay datos"
+        } else if(data.main.humidity <= 40) {
+          IndiceHumedad.textContent = "Bastante bien 👍🏻"
+        } else if(data.main.humidity <= 60) {
+          IndiceHumedad.textContent = "Bien 🙂"
+        } else if(data.main.humidity <= 80) {
+          IndiceHumedad.textContent = "Regular 😐"
+        } else if(data.main.humidity <= 90) {
+          IndiceHumedad.textContent = "Bastante alto 😶"
+        } else {
+          IndiceHumedad.textContent = "Muy alto 🌦️"
+        }
+
+
         Visibilidad.textContent = data.visibility / 1000 + " Km";
       });
 
