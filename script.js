@@ -18,6 +18,8 @@ const Visibilidad = document.getElementById("Visibilidad");
 const QualidadAire = document.getElementById("QualidadAire");
 const IndiceHumedad = document.getElementById("IndiceHumedad");
 const IndiceVisibilidad = document.getElementById("IndiceVisibilidad");
+const BotonBuscar = document.getElementById("BotonBuscar");
+const Buscar = document.getElementById("Buscar")
 //Las API KEY
 const API_KEY_METEOSOURCE = "q41ainn7spc5llgmwmt4p4rrlgbbujx5bckb49td";
 const Api_Key_openweathermap = "0f33901d085922ce186457a1a8080b62";
@@ -27,6 +29,17 @@ const API_KEY_PEXELS =
 //Dia de ahora
 const ahora = new Date();
 const hora = ahora.getHours() + ":" + ahora.getMinutes();
+
+
+BotonBuscar.addEventListener("click", () => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Buscar.value}&appid=${Api_Key_openweathermap}`)
+  .then((respuesta) => {
+    return respuesta.json();
+  })
+  .then((data) => {
+    console.log("Todo va bien de momento" + data)
+  })
+})
 
 ActivarJs.addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition((posicion) => {
