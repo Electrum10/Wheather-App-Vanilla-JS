@@ -7,7 +7,6 @@ const Dia = document.getElementById("Dia");
 const DescripcionDelDia = document.getElementById("DescripcionDelDia");
 const LogoDescripciónDelDia = document.getElementById("LogoDescripciónDelDia");
 const ProbabilidadDeLluvia = document.getElementById("ProbabilidadDeLluvia");
-const ActivarJs = document.getElementById("ACTIVARJS");
 const VelocidadDelViento = document.getElementById("VelocidadViento");
 const DireccionDelViento = document.getElementById("DireccionViento");
 const PuntosDireccionViento = document.getElementById("PuntosDireccionViento");
