@@ -30,8 +30,25 @@ const API_KEY_PEXELS =
 const ahora = new Date();
 const hora = ahora.getHours() + ":" + ahora.getMinutes();
 
+function ComprobarAnchoPantalla() {
+  if(window.innerWidth < 840) {
+    document.getElementById("CajaPrincipal").style.display = "none";
+    document.getElementById("pantallaPeque").style.display = "block"
+  } else {
+    document.getElementById("CajaPrincipal").style.display = "grid";
+    document.getElementById("pantallaPeque").style.display = "none";
+    document.getElementById("pantallaPeque").style.textAlign = "center";
+    document.getElementById("pantallaPeque").style.fontSize = "20px";
+  }
+}
 
-BotonBuscar.addEventListener("click", () => {
+window.addEventListener(("resize"), ComprobarAnchoPantalla)
+window.addEventListener(("load"), ComprobarAnchoPantalla)
+
+
+window.addEventListener("DOMContentLoaded", () => {
+ 
+
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Buscar.value}&appid=${Api_Key_openweathermap}`)
   .then((respuesta) => {
     return respuesta.json();
@@ -41,7 +58,7 @@ BotonBuscar.addEventListener("click", () => {
   })
 })
 
-ActivarJs.addEventListener("click", () => {
+window.addEventListener("DOMContentLoaded", () => {
   navigator.geolocation.getCurrentPosition((posicion) => {
     longitude = posicion.coords.longitude;
     latitude = posicion.coords.latitude;
