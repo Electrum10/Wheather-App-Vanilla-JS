@@ -18,6 +18,7 @@ h3 {
   font-size: 1.2vw;
   margin-top: -1px;
 }
+
 .CajaPrincipal {
   position: relative;
   margin: 0 auto;
@@ -59,7 +60,7 @@ h3 {
     }
   }
 
-  .Logo {
+  #iconoAnimado {
     width: 100%;
   }
 
@@ -130,6 +131,8 @@ h3 {
   .Prediccion7Dias {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    padding-top: 1.2vw;
+
 
     .Prediccion {
       background-color: #fff;
@@ -240,3 +243,4 @@ h3 {
     
   }
 }
+
