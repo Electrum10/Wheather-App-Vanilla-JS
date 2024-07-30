@@ -155,11 +155,27 @@ window.addEventListener("DOMContentLoaded", () => {
         const sunsetTimestamp = data.sys.sunset;
         const sunriseDate = new Date(sunriseTimestamp * 1000);
         const sunsetDate = new Date(sunsetTimestamp * 1000);
-        const sunriseTime = `${sunriseDate.getHours()}:${sunriseDate.getMinutes()}`;
-        const sunsetTime = `${sunsetDate.getHours()}:${sunsetDate.getMinutes()}`;
+        
+        
 
-        HoraSalidaSol.textContent = sunriseTime;
-        HoraPuestaSol.textContent = sunsetTime;
+        if(sunriseDate.getMinutes() === 0) {
+          const sunriseTime = `${sunriseDate.getHours()}:${sunriseDate.getMinutes()}0`;
+          HoraSalidaSol.textContent = sunriseTime;
+        } else {
+          const sunriseTime = `${sunriseDate.getHours()}:${sunriseDate.getMinutes()}`;
+          HoraSalidaSol.textContent = sunriseTime;
+        }
+
+        if(sunsetDate.getMinutes() === 0) {
+          const sunsetTime = `${sunsetDate.getHours()}:${sunsetDate.getMinutes()}0`;
+          HoraPuestaSol.textContent = sunsetTime;
+        } else {
+          const sunsetTime = `${sunsetDate.getHours()}:${sunsetDate.getMinutes()}`;
+          HoraPuestaSol.textContent = sunsetTime;
+        }
+        
+
+        
 
         Humedad.textContent = data.main.humidity + " %";
         if(data.main.humidity <= 0) {
