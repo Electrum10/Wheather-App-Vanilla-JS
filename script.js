@@ -32,7 +32,8 @@ const hora = ahora.getHours() + ":" + ahora.getMinutes();
 function ComprobarAnchoPantalla() {
   if(window.innerWidth < 840) {
     document.getElementById("CajaPrincipal").style.display = "none";
-    document.getElementById("pantallaPeque").style.display = "block"
+    document.getElementById("pantallaPeque").style.display = "block";
+    document.getElementById("AbrirUbicación").style.display = "none";
   } else {
     document.getElementById("CajaPrincipal").style.display = "grid";
     document.getElementById("pantallaPeque").style.display = "none";
@@ -44,10 +45,19 @@ function ComprobarAnchoPantalla() {
 window.addEventListener(("resize"), ComprobarAnchoPantalla)
 window.addEventListener(("load"), ComprobarAnchoPantalla)
 
+window.addEventListener("DOMContentLoaded", () => {
+  const BlockUbicación = document.getElementById("AbrirUbicación").style.display = "block";
+  if (BlockUbicación === "block") {
+    document.getElementById("CajaPrincipal").style.opacity = "0.2";
+    document.getElementById("AbrirUbicaciónBotón").addEventListener("click", () =>{
+      document.getElementById("AbrirUbicación").style.display = "none";
+      document.getElementById("CajaPrincipal").style.opacity = "1";
+    })
+  }
+})
+
 
 BotonBuscar.addEventListener("click", () => {
- 
-
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${Buscar.value}&units=metric&appid=${Api_Key_openweathermap}`)
   .then((respuesta) => {
     return respuesta.json();

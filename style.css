@@ -243,4 +243,27 @@ h3 {
     
   }
 }
+#PantallaPeque {
+  position: absolute;
+  z-index: 1;
+}
 
+#AbrirUbicación {
+  position: absolute;
+  z-index: 2;
+  background-color: blanchedalmond;
+
+  padding: 30px;
+  border: solid 3px;
+  border-radius: 20px; 
+  text-align: center;
+  font-size: 20px;
+}
+
+#AbrirUbicación button {
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 5px;
+}
